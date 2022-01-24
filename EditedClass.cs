@@ -14,6 +14,7 @@ namespace SpecflowNetCoreDemo
         {
             Console.WriteLine("from tester");
             Console.WriteLine("from tester for branch");
+            Console.WriteLine("from tester for branch2");
         }
     }
 }
