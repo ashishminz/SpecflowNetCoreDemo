@@ -44,8 +44,10 @@ namespace SpecflowNetCoreDemo.PageObjects
             }
 
         public bool HomePageVerify() => homeButton.Displayed;
-                
 
-        }
+        public bool loginPageVerify() => loginButton.Displayed;
+
+
+    }
     }
 
