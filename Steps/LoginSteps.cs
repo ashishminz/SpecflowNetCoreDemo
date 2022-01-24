@@ -14,12 +14,13 @@ namespace SpecflowNetCoreDemo.Steps
     [Binding]
     public sealed class LoginSteps
     {
+        public IWebDriver driver;
         LoginPage lp = null;
 
         [Given(@"I launch the application")]
         public void GivenILaunchTheApplication()
         {
-            IWebDriver driver = new ChromeDriver();
+            driver = new ChromeDriver();
             driver.Navigate().GoToUrl("http://localhost:8888/");
             lp = new LoginPage(driver);
         }
@@ -44,6 +45,18 @@ namespace SpecflowNetCoreDemo.Steps
         public void ThenIShouldBeOnTheHomepageOfTheVtigerWebsite()
         {
             Assert.That(lp.HomePageVerify(), Is.True);
+        }
+
+        [Then(@"I should be on the loginpage of the vtiger website")]
+        public void ThenIShouldBeOnTheLoginpageOfTheVtigerWebsite()
+        {
+            Assert.That(lp.loginPageVerify(), Is.True);
+        }
+
+        [Then(@"I close the browser")]
+        public void ThenICloseTheBrowser()
+        {
+           driver.Close();
         }
 
 
